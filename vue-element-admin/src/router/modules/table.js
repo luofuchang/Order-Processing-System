@@ -13,28 +13,28 @@ const tableRouter = {
   },
   children: [
     {
-      path: 'dynamic-table',
+      path: 'allOrders',
       component: () => import('@/views/table/complex-table'),
       name: 'DynamicTable',
-      meta: { title: '动态 Table' }
+      meta: { title: '所有订单' }
     },
     {
-      path: 'drag-table',
+      path: 'sentOrders',
       component: () => import('@/views/table/complex-table'),
       name: 'DragTable',
-      meta: { title: '可拖动 Table' }
+      meta: { title: '已发货' }
     },
     {
-      path: 'inline-edit-table',
+      path: 'buyedOrders',
       component: () => import('@/views/table/complex-table'),
       name: 'InlineEditTable',
-      meta: { title: '队列 Edit' }
+      meta: { title: '已买货' }
     },
     {
-      path: 'complex-table',
+      path: 'buyingOders',
       component: () => import('@/views/table/complex-table'),
       name: 'ComplexTable',
-      meta: { title: '综合 Table' }
+      meta: { title: '未买货' }
     }
   ]
 }
