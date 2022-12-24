@@ -8,32 +8,32 @@ const tableRouter = {
   redirect: '/table/complex-table',
   name: 'Table',
   meta: {
-    title: 'Table',
+    title: '订单',
     icon: 'table'
   },
   children: [
     {
       path: 'allOrders',
       component: () => import('@/views/table/complex-table'),
-      name: 'DynamicTable',
+      name: 'allOrders',
       meta: { title: '所有订单' }
     },
     {
       path: 'sentOrders',
       component: () => import('@/views/table/complex-table'),
-      name: 'DragTable',
+      name: 'sentOrders',
       meta: { title: '已发货' }
     },
     {
       path: 'buyedOrders',
       component: () => import('@/views/table/complex-table'),
-      name: 'InlineEditTable',
+      name: 'buyedOrders',
       meta: { title: '已买货' }
     },
     {
       path: 'buyingOders',
       component: () => import('@/views/table/complex-table'),
-      name: 'ComplexTable',
+      name: 'buyingOders',
       meta: { title: '未买货' }
     }
   ]

@@ -10,11 +10,11 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
-// request interceptor
+// request interceptor  请求拦截器
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-
+    // 查询是否存在token，给每一个请求加上token
     if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
@@ -29,7 +29,7 @@ service.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-
+// 响应拦截器
 // response interceptor
 service.interceptors.response.use(
   /**
@@ -56,7 +56,7 @@ service.interceptors.response.use(
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
+        MessageBox.confirm('您已经成功登出, 您可以留在此页面, 或者重新登录', 'Confirm logout', {
           confirmButtonText: 'Re-Login',
           cancelButtonText: 'Cancel',
           type: 'warning'

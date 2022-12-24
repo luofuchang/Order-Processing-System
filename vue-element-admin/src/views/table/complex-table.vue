@@ -35,17 +35,61 @@
       style="width: 100%;"
       @sort-change="sortChange"
     >
+      <!-- ID列 -->
       <el-table-column label="ID" prop="id" sortable="custom" align="center" width="80" :class-name="getSortClass('id')">
         <template slot-scope="{row}">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Date" width="150px" align="center">
+      <!-- 时间 -->
+      <el-table-column label="时间" width="150px" align="center">
         <template slot-scope="{row}">
           <span>{{ row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Title" min-width="150px">
+      <!-- 客人姓名  -->
+      <el-table-column label="姓名" width="100px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.client_name }}</span>
+        </template>
+      </el-table-column>
+      <!-- 客人地址  -->
+      <el-table-column label="地址" width="150px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.client_addr }}</span>
+        </template>
+      </el-table-column>
+      <!-- 客人邮编  -->
+      <el-table-column label="邮编" width="100px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.zip_code }}</span>
+        </template>
+      </el-table-column>
+      <!-- 客人电话  -->
+      <el-table-column label="电话" width="100px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.client_phone }}</span>
+        </template>
+      </el-table-column>
+      <!-- 购买型号  -->
+      <el-table-column label="型号" width="150px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.prod_type }}</span>
+        </template>
+      </el-table-column>
+      <!-- 淘宝订单号  -->
+      <el-table-column label="订单号" width="200px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.taobao.num }}</span>
+        </template>
+      </el-table-column>
+      <!-- 备注  -->
+      <el-table-column label="备注" width="300px" align="center">
+        <template slot-scope="{row}">
+          <span>{{ row.remark }}</span>
+        </template>
+      </el-table-column>
+      <!-- <el-table-column label="Title" min-width="150px">
         <template slot-scope="{row}">
           <span class="link-type" @click="handleUpdate(row)">{{ row.title }}</span>
           <el-tag>{{ row.type | typeFilter }}</el-tag>
@@ -78,8 +122,8 @@
             {{ row.status }}
           </el-tag>
         </template>
-      </el-table-column>
-      <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">
+      </el-table-column> -->
+      <!-- <el-table-column label="状态" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row,$index}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             Edit
@@ -94,7 +138,7 @@
             Delete
           </el-button>
         </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
 
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
